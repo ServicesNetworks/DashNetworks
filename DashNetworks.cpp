@@ -327,80 +327,7 @@ void servidorPython() {
     std::system(comando.c_str());
 }
 
-/*void upload() {
-	system("clear");
-	const int total = 50;
-	const char bar_char = '=';
-	cout<<"starting service Apache2"<<endl;
-	for (int i=0; i<=total;i++) {
-		cout<<"[";
-		for(int j=0; j<i; j++) {
-			cout << bar_char;
-		}
-		for(int j=i; j<total;j++) {
-			cout<<" ";
-		}
-		cout<<"] "<<int(i*100/total)<<"%\r";
-		cout.flush();
-		usleep(100000);
-	}
-	cout<<endl;
-	cout<<"¡Proceso completado!"<<endl;
 
-}*/
-//
-// 		SEGUNDA OPCION DE UPLOAD
-//
-
-void upload() {
-    system("clear");
-    
-
-    // Datos para la carga en la máquina de THM
-    string thm_username;
-    string thm_ip;
-    string local_file_path;
-    string remote_directory;
-
-	cout << "Enter the username of the machine: ";
-	cin >> thm_username;
-	cout << "Enter the ip of the machine: ";
-	cin >> thm_ip;
-	cout << "Enter the path of the local file: ";
-	cin >> local_file_path;
-	cout << "Enter the remote directory path the machin: ";
-	cin >> remote_directory;
-    cout << "Cargando archivo a TryHackMe..." << endl;
-
-    // Construir el comando scp
-    string scp_command = "scp " + local_file_path + " " + thm_username + "@" + thm_ip + ":" + remote_directory;
-    // Ejecutar el comando scp
-    system(scp_command.c_str());
-    cout << "Archivo cargado exitosamente." << endl;
-}
-
-void download() {
-    string ip, port, filename;
-    char typeHttp;
-    limpieza();
-    cout << "enter the ip: ";
-    cin >> ip;
-    cout << "enter the port: ";
-    cin >> port;
-    cout << "enter the file name: ";
-    cin >> filename;
-    //cout << "https[Y] or http[N] ?\n[Y/N]" << endl;
-    cout << "Is the file on the local network ?\n[Y/N]";
-    cin >> typeHttp;
-
-    if (typeHttp == 'Y' || typeHttp == 'y') {
-        system(("wget https://" + ip + ":" + port + "/" + filename).c_str());
-    } else if (typeHttp == 'N' || typeHttp == 'n') {
-        system(("wget http://" + ip + ":" + port + "/" + filename).c_str());
-    } else {
-        cout << "Invalid input. Please enter Y or N." << endl;
-    }
-}
 void help() {
     limpieza();
     cout << " ---------" << endl;
@@ -422,7 +349,7 @@ int main() {
     limpieza();
     try {
         //sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
-        //sql::Connection *con = driver->connect("tcp://127.0.0.1:3306", "Work", "deadgun");
+        //sql::Connection *con = driver->connect("tcp://127.0.0.1:3306", "DATABASE", "USER");
 
         do {
             cout << "[0]>> ";
@@ -449,11 +376,7 @@ int main() {
                 break;
             } else if (command == "\\nmap") {
             	nmap();
-            } else if (command == "\\upload") {
-            	upload();
-            } else if (command == "\\download") {
-            	download();
-            } else {
+            }  else {
                 cout << "Comando no reconocido. Inténtalo de nuevo." << endl;
             }
         } while (true);
