@@ -7,7 +7,9 @@ This code thats will be used on system based on linux...
 
 # Uses
 
-git clone https://github.com/ServicesNetworks/DashNetworks
+git clone https://github.com/ServicesNetworks/DashNetworks.git
 
+cd DashNetworks/ && chmod +x install.sh && sudo ./install.sh
 
-if you have some mistake in the code 
+If your don't have any libraries about mysqll conn you will need use:
+cd DashNetworks/ && chmod +x libraries.sh && ./libraries.sh
